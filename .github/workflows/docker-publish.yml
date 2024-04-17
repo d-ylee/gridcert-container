@@ -29,7 +29,10 @@ jobs:
       id-token: write
 
     steps:
-      - uses: cvmfs-contrib/github-action-cvmfs@v4.0
+      - name: Install CVMFS
+        uses: cvmfs-contrib/github-action-cvmfs@v4.0
+        with:
+          cvmfs_repositories: grid.cern.ch
 
       - name: Checkout repository
         uses: actions/checkout@v3
