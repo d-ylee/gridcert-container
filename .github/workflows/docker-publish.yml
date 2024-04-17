@@ -72,6 +72,9 @@ jobs:
       - name: Test CVMFS
         run: ls /cvmfs/grid.cern.ch/etc/grid-security
 
+      - name: Copy certs to workspace
+        run: cp -r /cvmfs/grid.cern.ch/etc/grid-security/certificates ${{ github.workspace }}
+
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image
