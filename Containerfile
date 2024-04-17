@@ -1,7 +1,6 @@
-FROM docker.io/library/centos:7
+FROM almalinux:9-minimal
 
-WORKDIR grid-certificates
-COPY ./grid-certificates/ .
+WORKDIR /grid-certificates
+COPY /cvmfs/grid.cern.ch/etc/grid-security/certificates .
 
-RUN yum -y update && yum -y upgrade
-RUN yum install -y bash bash-doc bash-completion
+CMD ["sleep", "infinity"]
