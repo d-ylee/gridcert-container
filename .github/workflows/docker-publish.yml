@@ -30,6 +30,9 @@ jobs:
 
     steps:
       - uses: cvmfs-contrib/github-action-cvmfs@v4.0
+      - name: Test CVMFS
+        run: ls /cvmfs/grid.cern.ch/etc/grid-security
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
