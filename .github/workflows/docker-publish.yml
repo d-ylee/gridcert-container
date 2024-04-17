@@ -30,8 +30,6 @@ jobs:
 
     steps:
       - uses: cvmfs-contrib/github-action-cvmfs@v4.0
-      - name: Test CVMFS
-        run: ls /cvmfs/grid.cern.ch/etc/grid-security
 
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -67,6 +65,9 @@ jobs:
         uses: docker/metadata-action@96383f45573cb7f253c731d3b3ab81c87ef81934 # v5.0.0
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Test CVMFS
+        run: ls /cvmfs/grid.cern.ch/etc/grid-security
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
